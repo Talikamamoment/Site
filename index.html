@@ -1,0 +1,429 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   TALIKAMA moment
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   #background-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+   }
+      .gallery-container {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      justify-content: center;
+    }
+    .gallery {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .gallery img {
+      width: 300px; /* Ukuran diperbesar */
+      height: auto;
+      margin: 0 10px;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-white relative">
+  <!-- Sheet 1 Content -->
+  <header class="relative h-screen">
+   <img alt="Background image" id="background-image" src="1.jpg"/>
+   <div class="absolute inset-0 bg-black opacity-50">
+   </div>
+   <div class="absolute inset-0 flex flex-col justify-center p-8">
+    <div class="flex justify-between items-center mb-8">
+     <div class="flex items-center space-x-2 hidden md:flex">
+      <img alt="Logo" class="w-10 h-10" src="loglog.png"/>
+      <span class="text-xl font-semibold">
+       TALIKAMA moment.
+      </span>
+     </div>
+     <nav class="space-x-4 md:space-x-8 flex flex-row items-center">
+      <a class="text-white" href="#" onclick="showPriceGuide()">
+       Price Guide
+      </a>
+      <a class="text-white" href="#" onclick="showCareer()">
+       Career
+      </a>
+      <a class="bg-yellow-500 text-black px-4 py-2 rounded-full" href="#" onclick="orderWhatsapp()">
+       Order
+      </a>
+     </nav>
+    </div>
+    <div class="border-b-2 border-white mb-8">
+    </div>
+    <div class="flex flex-col items-start justify-center text-left h-full">
+     <h1 class="text-2xl md:text-4xl font-bold">
+      Dokumentation For Your
+     </h1>
+     <h2 class="text-3xl md:text-6xl font-bold text-yellow-500">
+      CELEBRATING LIFE
+     </h2>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between text-lg md:text-xl mt-8">
+     <p class="w-full md:w-1/2 pr-0 md:pr-4">
+      Setiap perayaan adalah simfoni jiwa, resonansi mendalam di hati setiap individu. Rasa syukur selaras dalam setiap pencapaian dan pertemuan, berubah menjadi bentuk perayaan yang indah.
+     </p>
+     <p class="w-full md:w-1/2 pl-0 md:pl-4 mt-4 md:mt-0">
+      Dokumentasi melalui Audio Visual efektif dalam merekam kenangan dalam setiap perayaan manusia. Di setiap momen yang berharga, tersembunyi makna yang mendalam, mengabadikan keindahan dalam karya-karya yang bertahan sepanjang waktu.
+     </p>
+    </div>
+   </div>
+  </header>
+  <!-- Sheet 2: Photo Gallery Section -->
+  <div class="bg-black text-center py-10 md:py-20">
+    <h1 class="text-3xl md:text-5xl text-yellow-500 mb-10">Our Gallery</h1>
+    <div class="gallery-container">
+      <div class="gallery" id="gallery-slide">
+        <img src="g1.jpg" alt="Photo 1"/>
+        <img src="g2.jpg" alt="Photo 2"/>
+        <img src="g3.jpg" alt="Photo 3"/>
+        <img src="g4.jpg" alt="Photo 4"/>
+        <img src="g5.jpg" alt="Photo 5"/>
+        <img src="g6.png" alt="Photo 6"/>
+      </div>
+    </div>
+    <div class="flex justify-center mt-10">
+      <button class="px-4 py-2 bg-yellow-500 text-black font-bold mx-2" onclick="prevSlide()">Prev</button>
+      <button class="px-4 py-2 bg-yellow-500 text-black font-bold mx-2" onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+  <!-- Sheet 3 (New Section) -->
+  <div class="flex justify-between items-center bg-cover bg-no-repeat h-screen p-10 md:p-20" style="background-image: url('2.jpg');">
+   <div class="max-w-1/2">
+    <h1 class="text-3xl md:text-5xl text-yellow-500 mb-4">
+     MAKE YOUR
+    </h1>
+    <h1 class="text-2xl md:text-4xl text-white">
+     SWEET MEMORIES
+    </h1>
+    <h1 class="text-xl md:text-2xl text-white mb-4">
+     by Talikama
+    </h1>
+   </div>
+   <div>
+    <video class="w-full md:w-96 h-56 md:h-72 rounded-lg shadow-lg" controls>
+      <source src="0325.mp4" type="video/mp4">
+   </div>
+  </div>
+  <!-- Modal for Price Guide -->
+  <div class="fixed inset-0 z-50 hidden overflow-auto bg-black bg-opacity-75 p-4" id="priceModal">
+   <div class="bg-gray-800 text-white p-6 rounded-lg max-w-3xl mx-auto">
+    <span class="text-2xl font-bold cursor-pointer float-right" onclick="closeModal('priceModal')">
+     ×
+    </span>
+    <div class="text-xl mb-4">
+     Price List – Talikama Photo &amp; Video Services
+    </div>
+    <div class="text-lg">
+     <h2 class="text-2xl mb-2">
+      Wedding Photography &amp; Videography
+     </h2>
+     <p>
+      <strong>
+       Package A (Basic)
+      </strong>
+      <br/>
+      Photography (5 hours)
+      <br/>
+      Videography (5 hours)
+      <br/>
+      1 Photographer &amp; 1 Videographer
+      <br/>
+      300 edited photos
+      <br/>
+      Highlight video (5-7 minutes)
+      <br/>
+      Price: Rp 5.000.000
+     </p>
+     <p>
+      <strong>
+       Package B (Premium)
+      </strong>
+      <br/>
+      Photography (Full day coverage)
+      <br/>
+      Videography (Full day coverage)
+      <br/>
+      2 Photographers &amp; 2 Videographers
+      <br/>
+      500 edited photos
+      <br/>
+      Highlight video (7-10 minutes)
+      <br/>
+      Full wedding documentary video (30-45 minutes)
+      <br/>
+      Price: Rp 10.000.000
+     </p>
+     <p>
+      <strong>
+       Package C (Exclusive)
+      </strong>
+      <br/>
+      Photography (Pre-wedding + Full day coverage)
+      <br/>
+      Videography (Pre-wedding + Full day coverage)
+      <br/>
+      2 Photographers &amp; 2 Videographers
+      <br/>
+      800 edited photos
+      <br/>
+      Highlight video (7-10 minutes)
+      <br/>
+      Full wedding documentary video (45-60 minutes)
+      <br/>
+      Wedding album (30 pages)
+      <br/>
+      Price: Rp 15.000.000
+     </p>
+     <h2 class="text-2xl mb-2">
+      Prewedding Photography &amp; Videography
+     </h2>
+     <p>
+      <strong>
+       Package A (Basic)
+      </strong>
+      <br/>
+      Photography (4 hours)
+      <br/>
+      2 Locations
+      <br/>
+      200 edited photos
+      <br/>
+      Price: Rp 2.500.000
+     </p>
+     <p>
+      <strong>
+       Package B (Premium)
+      </strong>
+      <br/>
+      Photography (6 hours)
+      <br/>
+      Videography (6 hours)
+      <br/>
+      3 Locations
+      <br/>
+      300 edited photos
+      <br/>
+      Highlight video (3-5 minutes)
+      <br/>
+      Price: Rp 5.000.000
+     </p>
+     <p>
+      <strong>
+       Package C (Exclusive)
+      </strong>
+      <br/>
+      Photography (Full day)
+      <br/>
+      Videography (Full day)
+      <br/>
+      Unlimited locations
+      <br/>
+      500 edited photos
+      <br/>
+      Highlight video (5-7 minutes)
+      <br/>
+      Prewedding album (20 pages)
+      <br/>
+      Price: Rp 8.000.000
+     </p>
+     <h2 class="text-2xl mb-2">
+      Engagement Photography &amp; Videography
+     </h2>
+     <p>
+      <strong>
+       Package A (Basic)
+      </strong>
+      <br/>
+      Photography (3 hours)
+      <br/>
+      150 edited photos
+      <br/>
+      Price: Rp 2.000.000
+     </p>
+     <p>
+      <strong>
+       Package B (Premium)
+      </strong>
+      <br/>
+      Photography (4 hours)
+      <br/>
+      Videography (4 hours)
+      <br/>
+      200 edited photos
+      <br/>
+      Highlight video (3-5 minutes)
+      <br/>
+      Price: Rp 4.000.000
+     </p>
+     <p>
+      <strong>
+       Package C (Exclusive)
+      </strong>
+      <br/>
+      Photography (6 hours)
+      <br/>
+      Videography (6 hours)
+      <br/>
+      300 edited photos
+      <br/>
+      Highlight video (5-7 minutes)
+      <br/>
+      Price: Rp 6.000.000
+     </p>
+     <h2 class="text-2xl mb-2">
+      Graduation Photography
+     </h2>
+     <p>
+      <strong>
+       Package A (Individual)
+      </strong>
+      <br/>
+      Photography (2 hours)
+      <br/>
+      100 edited photos
+      <br/>
+      Price: Rp 1.500.000
+     </p>
+     <p>
+      <strong>
+       Package B (Group)
+      </strong>
+      <br/>
+      Photography (4 hours)
+      <br/>
+      Up to 10 graduates
+      <br/>
+      300 edited photos
+      <br/>
+      Price: Rp 3.500.000
+     </p>
+     <p>
+      <strong>
+       Package C (Ceremony + Portrait)
+      </strong>
+      <br/>
+      Photography (Full day)
+      <br/>
+      500 edited photos
+      <br/>
+      Group photos + Individual portraits
+      <br/>
+      Price: Rp 5.000.000
+     </p>
+     <h2 class="text-2xl mb-2">
+      Additional services:
+     </h2>
+     <p>
+      Drone Footage: Rp 1.500.000
+      <br/>
+      Photo Album: Rp 1.000.000 – Rp 3.000.000 (depending on size)
+      <br/>
+      Extra Hour: Rp 500.000 / hour
+     </p>
+    </div>
+   </div>
+  </div>
+  <!-- Modal for Career -->
+  <div class="fixed inset-0 z-50 hidden overflow-auto bg-black bg-opacity-75 p-4" id="careerModal">
+   <div class="bg-gray-800 text-white p-6 rounded-lg max-w-3xl mx-auto">
+    <span class="text-2xl font-bold cursor-pointer float-right" onclick="closeModal('careerModal')">
+     ×
+    </span>
+    <div class="text-xl mb-4">
+     Career Opportunities at Talikama
+    </div>
+    <div class="text-lg">
+     <p>
+      Explore exciting career opportunities with Talikama. Join our dynamic team and contribute to capturing memorable moments for our clients.
+     </p>
+     <h3 class="text-2xl mb-2">
+      Current Openings:
+     </h3>
+     <ul class="list-disc list-inside">
+      <li>
+       Photographer
+      </li>
+      <li>
+       Videographer
+      </li>
+      <li>
+       Graphic Designer
+      </li>
+      <li>
+       Marketing Specialist
+      </li>
+     </ul>
+     <p>
+      For more details, please contact us at
+      <a class="text-yellow-500" href="mailto:careers@talikama.com">
+       careers@talikama.com
+      </a>
+      .
+     </p>
+    </div>
+   </div>
+  </div>
+  <script>
+    let currentIndex = 0;
+    const slide = document.getElementById('gallery-slide');
+    const images = document.querySelectorAll('.gallery img');
+    const totalImages = images.length;
+    const imageWidth = images[0].clientWidth + 20; // Tambahkan margin
+
+    function showSlide(index) {
+      slide.style.transform = `translateX(-${index * imageWidth}px)`;
+    }
+
+    function nextSlide() {
+      if (currentIndex < totalImages - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Reset ke awal setelah gambar terakhir
+      }
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalImages - 1; // Kembali ke gambar terakhir
+      }
+      showSlide(currentIndex);
+    }
+    window.addEventListener('resize', () => showSlide(currentIndex));
+
+    // Price Guide button functionality
+    function showPriceGuide() {
+      document.getElementById('priceModal').classList.remove('hidden');
+    }
+
+    // Career button functionality
+    function showCareer() {
+      document.getElementById('careerModal').classList.remove('hidden');
+    }
+
+    // Order button functionality
+    function orderWhatsapp() {
+      window.open('https://wa.me/6281382010526?text=Hello%20Talikama', '_blank');
+    }
+
+    // Close modal functionality
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+  </script>
+ </body>
+</html>
